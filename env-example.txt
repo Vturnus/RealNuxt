@@ -1,0 +1,10 @@
+MAPBOX=your_mapbox_access_token
+GCI=google_global
+CLIENTHUSH=google_secret
+ALGOLIAappID=you_app_id
+ALGOLIAKEY=key
+ALGOLIAFPC=private_key
+CSECRET=cloudinary_secret
+CAPIKEY=cloudinary_api
+STRIPE_PK="stripe_public"
+STRIPE_SK="stripe_secret"

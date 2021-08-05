@@ -1,0 +1,72 @@
+import {getHeaders} from "../../helpers";
+import {getError, unWrap} from "../../../utils/fetchUtils";
+import fetch from 'node-fetch'
+
+export default (algoliaConfig) => {
+    const headers = getHeaders(algoliaConfig)
+    return {
+        create: async (homeId, payload) => {
+            try {
+                const availability = []
+                payload.availabilityRanges.forEach(range => {
+                    const start = new Date(range.start).getTime() / 1000
+                    const end = new Date(range.end).getTime() / 1000
+                    for(let day = start; day <= end; day += 86400){
+                        availability.push(day)
+                    }
+                })
+                delete payload.availabilityRanges
+                payload.availability = availability
+                return await unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
+                    headers,
+                    method: 'PUT',
+                    body: JSON.stringify(payload)
+                }))
+            }
+            catch (error){
+                return getError(error)
+            }
+        },
+        get: async (homeId) => {
+            try {
+                return await unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
+                    headers,
+                }))
+            }
+            catch (error){
+                return getError(error)
+            }
+        },
+        delete: async (homeId) => {
+            try {
+                return await unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/homes/${homeId}`, {
+                    headers,
+                    method: 'DELETE',
+                }))
+            }
+            catch (error){
+                return getError(error)
+            }
+        },
+        getByUserId: async (userId) => {
+            try {
+                return await unWrap(await fetch(`https://${algoliaConfig.appId}-dsn.algolia.net/1/indexes/homes/query`, {
+                    headers,
+                    method: 'POST',
+                    body: JSON.stringify({
+                        filters: `userId:${userId}`,
+                        attributesToRetrieve:[
+                            'objectID',
+                            'title'
+                        ],
+                        attributesToHighlight:[],
+                    })
+                }))
+            }
+            catch (error){
+                return getError(error)
+            }
+        },
+    }
+
+}
