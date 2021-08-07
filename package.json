@@ -11,7 +11,7 @@
     "js-cookie": "^2.2.1",
     "leaflet": "^1.7.1",
     "leaflet-geosearch": "^3.3.2",
-    "mapbox-gl": "^2.3.1",
+    "mapbox-gl": "^2.4.0",
     "nuxt": "^2.15.7",
     "nuxt-leaflet": "^0.0.25",
     "stripe": "^8.167.0",
@@ -29,8 +29,5 @@
     "@nuxtjs/tailwindcss": "3.4.2",
     "sass": "^1.35.2",
     "sass-loader": "10.1.1"
-  },
-  "resolutions": {
-    "minipass": "3.1.1"
   }
 }
