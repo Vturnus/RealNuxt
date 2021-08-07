@@ -29,8 +29,5 @@
     "@nuxtjs/tailwindcss": "3.4.2",
     "sass": "^1.35.2",
     "sass-loader": "10.1.1"
-  },
-  "resolutions": {
-    "minipass": "2.7.0"
   }
 }
