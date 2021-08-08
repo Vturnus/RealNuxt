@@ -1,5 +1,4 @@
 export default {
-    rootUrl: process.env.NODE_ENV === 'production' ? 'https://real-nuxt.vercel.app' : 'http://localhost:3000 ',
     components: true,
     head: {
         titleTemplate: 'Mastering Nuxt: %s',
@@ -65,6 +64,7 @@ export default {
         '~plugins/stripe.client.js',
     ],
     publicRuntimeConfig:{
+        rootUrl: process.env.NODE_ENV === 'production' ? 'https://real-nuxt.vercel.app' : 'http://localhost:3000 ',
         auth:{
             cookieName: 'idToken',
             clientId: '461512088878-2qi65o3t1j84jbm0v2kbn92s9kc3ovng.apps.googleusercontent.com'
@@ -83,7 +83,7 @@ export default {
     privateRuntimeConfig:{
         algolia: {
             appId: '7AS43BY7LK',
-            key: 'd9b5c7e5d56f32dbde7467129dd40382'
+            key: 'bd848c11b7ce2d227d1ef9a57ee0d43b'
         },
         cloudinary: {
             apiSecret: 'zuqT8tHnIcoJhhrXJNpOK-0R-eM',
