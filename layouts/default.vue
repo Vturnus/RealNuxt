@@ -31,7 +31,6 @@
           </date-picker>
         </client-only>
         <button @click="search">
-          <img src="/images/icons/search.svg" alt="searchImage"/>
         </button>
       </div>
       <div class="app-user-menu">
