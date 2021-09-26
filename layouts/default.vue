@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <header class="app-header">
-      <div class="app-logo">
-        <img src="/images/logo.svg" alt="logo"  v-on:click="main" />
-      </div>
+      <nuxt-link to="/" class="app-logo">
+        <img src="/images/logo.svg" alt="logo" />
+      </nuxt-link>
       <div  class="app-search">
         <client-only>
           <mapbox-geocoder
@@ -85,9 +85,6 @@ export default {
         }
       })
    },
-    main(){
-      this.$router.push('/')
-    },
     changed(event){
       const place = event.result
       if(!place.geometry) return

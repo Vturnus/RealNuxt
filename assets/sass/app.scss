@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-html, body {
+html,
+body {
   @apply font-roboto;
 }
 
 $cities: paris, new-york, london, dubai, san-francisco, cancun;
 @each $city in $cities {
   .city-#{$city} {
-    background-image: url(/images/photos/#{$city}.jpg);
+    background-image: url(static/images/photos/#{$city}.jpg);
   }
 }
 
 .app {
-
   &-flex {
     @apply flex justify-between items-center;
   }
@@ -46,7 +46,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-address {
-    background-image: url(/images/icons/pin.svg);
+    background-image: url(static/images/icons/pin.svg);
     background-position: top 2px left;
     @apply pl-5 bg-no-repeat text-dodger-blue text-sm underline;
   }
@@ -56,7 +56,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-rating {
-    background-image: url(/images/icons/star.svg);
+    background-image: url(static/images/icons/star.svg);
     background-position: top 2px left;
     @apply pl-5 bg-no-repeat text-mineshaft font-medium text-sm;
 
@@ -84,7 +84,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       @apply border-2 border-link-water rounded-lg text-lg py-3 px-2 mr-8;
 
       &.datepicker {
-        background-image: url(/images/icons/calendar.svg);
+        background-image: url(static/images/icons/calendar.svg);
         background-position: center right 0.625rem;
         @apply bg-no-repeat;
       }
@@ -108,7 +108,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-hero {
-    background-image: url(/images/photos/beach.jpg);
+    background-image: url(static/images/photos/beach.jpg);
     @apply h-148 bg-cover rounded-3xl flex items-end justify-center pb-12;
 
     > h2 {
@@ -177,7 +177,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       }
 
       .app-testimonial-body {
-        background-image: url(/images/icons/quote.svg);
+        background-image: url(static/images/icons/quote.svg);
         text-indent: 22px;
         @apply bg-no-repeat text-sm text-trout;
 
@@ -195,7 +195,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   &-dual-picture {
     @apply flex items-center w-full rounded-2xl overflow-hidden;
 
-    > div {
+    > a {
       @apply inline-block flex-grow w-1/2 h-94 p-5 flex items-end text-white justify-center text-center;
 
       h3 {
@@ -223,7 +223,6 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-carousel {
-
     &-header {
       @apply flex justify-between items-center mb-15;
 
@@ -246,7 +245,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       &-buttons {
         button {
           font-size: 1px;
-          background-image: url(/images/icons/chevron.svg);
+          background-image: url(static/images/icons/chevron.svg);
           @apply bg-no-repeat bg-center rounded-full border-2 border-dodger-blue h-12 w-12 bg-transparent text-transparent;
 
           &:focus {
@@ -354,7 +353,7 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
     }
 
     &-guests {
-      background-image: url(/images/icons/group.svg);
+      background-image: url(static/images/icons/group.svg);
       background-size: auto 20px;
       @apply pl-6 bg-no-repeat;
     }
@@ -377,12 +376,12 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       }
 
       .app-host-reviews {
-        background-image: url(/images/icons/star-blue.svg);
+        background-image: url(static/images/icons/star-blue.svg);
         @apply text-east-bay text-xl mr-10 bg-left bg-no-repeat pl-8;
       }
 
       .app-host-medal {
-        background-image: url(/images/icons/medal.svg);
+        background-image: url(static/images/icons/medal.svg);
         @apply text-east-bay text-xl  bg-left bg-no-repeat pl-8;
       }
     }
@@ -393,18 +392,15 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
   }
 
   &-error-page {
-    background-image:
-      url(/images/illustrations/wave.svg),
-      url(/images/illustrations/mountains.svg),
-      linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(157,187,215,1) 100%);
-    background-position:
-      center,
-      bottom -82px center,
-      center;
-    background-size:
-      cover,
-      auto,
-      cover;
+    background-image: url(static/images/illustrations/wave.svg),
+    url(static/images/illustrations/mountains.svg),
+    linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(157, 187, 215, 1) 100%
+    );
+    background-position: center, bottom -82px center, center;
+    background-size: cover, auto, cover;
     @apply bg-no-repeat flex items-center justify-center min-h-screen;
   }
 
@@ -457,9 +453,10 @@ $cities: paris, new-york, london, dubai, san-francisco, cancun;
       &-pagination {
         @apply flex justify-center items-center mt-10;
 
-        .app-next, .app-prev {
+        .app-next,
+        .app-prev {
           font-size: 1px;
-          background-image: url(/images/icons/chevron.svg);
+          background-image: url(static/images/icons/chevron.svg);
           @apply mx-8 bg-no-repeat bg-center rounded-full border-2 border-dodger-blue h-10 w-10 bg-transparent text-transparent;
         }
 

@@ -36,6 +36,28 @@
 <script>
 
 export default {
+  computed: {
+    getSchema() {
+      return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BedAndBreakfast",
+        "name": this.home.title,
+        "image": this.$img(this.home.images[0], {width: 1200}, {provider: 'cloudinary'}),
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": this.home.location.city,
+          "addressRegion": this.home.location.state,
+          "postalCode": this.home.location.postalCode,
+          "streetAddress": this.home.location.address,
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": this.home.reviewValue,
+          "reviewCount": this.home.reviewCount
+        }
+      })
+    }
+  },
   head() {
     return {
       title: this.home.title,
@@ -57,30 +79,8 @@ export default {
           property: 'og:url',
           content: `${this.$config.rootUrl}/home/${this.home.objectID}`
         },
-        { hid: 't-type', name: 'twitter:card', content: 'summary_large_image'}
+        {hid: 't-type', name: 'twitter:card', content: 'summary_large_image'}
       ]
-    }
-  },
-  computed: {
-    getSchema() {
-      return JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BedAndBreakfast",
-        "name": this.home.title,
-        "image": this.$img(this.home.images[0], {width: 1200}, {provider: 'cloudinary'}),
-        "address" : {
-          "@type": "PostalAddress",
-          "addressLocality": this.home.location.city,
-          "addressRegion": this.home.location.state,
-          "postalCode": this.home.location.postalCode,
-          "streetAddress": this.home.location.address,
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": this.home.reviewValue,
-          "reviewCount": this.home.reviewCount
-        }
-      })
     }
   },
   async asyncData({params, $dataApi, error}) {
