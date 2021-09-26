@@ -64,7 +64,7 @@ export default {
   computed: {
     getSchema() {
       return JSON.stringify({
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "BedAndBreakfast",
         "name": this.home.title,
         "image": this.$img(this.home.images[0], {width: 1200}, {provider: 'cloudinary'}),
