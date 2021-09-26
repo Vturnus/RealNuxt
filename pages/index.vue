@@ -3,8 +3,7 @@
     <div class="app-container">
       <div class="app-hero">
         <h2>
-          - Escape everyday stress, Discover new realm of pleasure, work with
-          peaceful mind or just relax and enjoy!
+          - Escape everyday stress, Discover new realm of pleasure.
         </h2>
       </div>
     </div>
